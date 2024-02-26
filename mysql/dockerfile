@@ -1,11 +1,8 @@
-# Use the official MySQL image as a parent image
 FROM mysql:5.7
 
-# Set environment variables (optional)
-ENV MYSQL_ROOT_PASSWORD=RoboShop@1
-ENV MYSQL_DATABASE=shipping
-ENV MYSQL_USER=shipping_user
-ENV MYSQL_PASSWORD=RoboShop@1
+ENV MYSQL_ALLOW_EMPTY_PASSWORD=yes \
+    MYSQL_DATABASE=cities \
+    MYSQL_USER=shipping \
+    MYSQL_PASSWORD=RoboShop@1
 
-# Copy the SQL scripts to initialize the database
-COPY ./scripts/* /docker-entrypoint-initdb.d/
+COPY scripts/* /docker-entrypoint-initdb.d/
